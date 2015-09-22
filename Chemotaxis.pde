@@ -3,9 +3,9 @@
  void setup()   
  {     
  	//initialize bacteria variables here
- 	size(300,300);
+ 	size(400,400);
 
- 	colony = new Bacteria[600];
+ 	colony = new Bacteria[800];
  	for(int i=0; i<colony.length; i++)
  	{
  		colony[i] = new Bacteria();
@@ -29,6 +29,7 @@ class Bacteria
  	//int mouseY;
  	int myX;
  	int myY;
+ 	int bSize;
  	int bcolorr;
  	int bcolorg;
  	int bcolorb;
@@ -39,11 +40,12 @@ class Bacteria
  		bcolorb = (int)(Math.random()*255);
  		myX = 150;//(int)(Math.random()*10)+145;
  		myY = 150;//(int)(Math.random()*10)+145;
+ 		bSize = (int)(Math.random()*10)+1;
  	}    
 	void move()
 	{
-		myX = myX + (int)(Math.random()*3)-1;
-		myY = myY + (int)(Math.random()*3)-1;
+		myX = myX + (int)(Math.random()*5)-2;
+		myY = myY + (int)(Math.random()*5)-2;
 		if(myX < mouseX)
 		{
 			myX = myX + (int)(Math.random()*2);
@@ -67,12 +69,12 @@ class Bacteria
 	}
  	void show()
  	{
- 		stroke(5);
+ 		stroke(3);
  		fill(bcolorr, bcolorg, bcolorb, 500);
-		ellipse(myX, myY, 5, 5); 
+		ellipse(myX, myY, bSize, bSize); 
  		noStroke();		
 		fill(255,0,0);
-		ellipse(mouseX, mouseY, 15, 15);
+		//ellipse(mouseX, mouseY, 15, 15);
  	}	
 }
 
